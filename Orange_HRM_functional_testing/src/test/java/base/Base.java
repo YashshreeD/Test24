@@ -1,8 +1,12 @@
 package base;
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class Base {
 	public static WebDriver openChromeBrowser() {
@@ -14,9 +18,14 @@ public class Base {
 	
 	public static WebDriver openFirefoxBrowser() {
 	
-		System.setProperty("webdriver.gecko.driver","C:\\Users\\yashs\\Documents\\Testing\\geckodriver-v0.34.0-win32\\geckodriver.exe");
-		WebDriver driver = new FirefoxDriver();
-		driver.manage().window().maximize();
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\yashs\\Desktop\\myjava\\geckodriver-v0.34.0-win32\\geckodriver.exe");
+       
+        FirefoxBinary firefoxBinary = new FirefoxBinary(new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe"));
+       FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setBinary(firefoxBinary);
+        
+        WebDriver driver = new FirefoxDriver(firefoxOptions);  
+        driver.manage().window().maximize();
 		return driver;
 	}
 	

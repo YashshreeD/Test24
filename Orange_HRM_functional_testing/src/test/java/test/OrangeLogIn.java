@@ -25,7 +25,11 @@ public class OrangeLogIn extends Base {
 		if (browserName.equals("Chrome"));
 		{
 			driver = Base.openChromeBrowser();
-		}		
+		}	
+		if (browserName.equals("Firefox"))
+		{
+			driver = Base.openFirefoxBrowser();
+		}
 		driver.manage().window().maximize();
 	}
 	@BeforeMethod
