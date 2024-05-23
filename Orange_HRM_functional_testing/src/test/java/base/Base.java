@@ -30,10 +30,9 @@ public class Base {
 	}
 	
 	public static WebDriver openEdgeBrowser() {
-		
-		
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		System.setProperty("webdriver.edge.driver", "");
+  		WebDriver driver = new EdgeDriver();
+    		driver.manage().window().maximize();
 		return driver;
 	}
 }
